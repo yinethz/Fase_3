@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<htmk lang="en">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Programación de Sitios Web</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<header>
+		<!-- 
+			La documentación sobre los Navs Bar se encuentra en el link:
+			https://getbootstrap.com/docs/4.3/components/navbar/ 
+		-->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<!-- Este siempre queda visible, pero no es necesario dejarlo -->
+			<a class="navbar-brand" href="#">Fox Electronics</a>
+			<!-- 	Este boton se muestra cuando se ha reducido la pantalla
+					Los atributo data-target y aria-controls llevan el id del Menú 
+			-->
+			<button 	class="navbar-toggler " type="button" data-toggle="collapse" 
+						data-target="#navMenuPrincipal" aria-controls="navMenuPrincipal"  
+						aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span> <!-- Este iciono se muestra cuando se ha reducido la pantalla-->
+			</button>
+
+			<div class="collapse navbar-collapse" id="navMenuPrincipal"> <!-- Menú -->
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="../index.html">Inicio</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                     Administrador
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                     <a class="dropdown-item" href="../admin/crearBD.html">Crear Base de Datos</a>
+                     <a class="dropdown-item" href="../admin/crearTabla.html">Crear Tabla</a>
+                     <a class="dropdown-item" href="../admin/crearBackup.html">Crear Backup</a>
+                  </div>
+               </li>
+					<li class="nav-item">
+						<a class="nav-link" href="../ventas/ventas.html">Ventas</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategorias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Inventario
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+							<a class="dropdown-item" href="../inventario/ingresar.html">Ingresar</a>
+							<a class="dropdown-item" href="../inventario/actualizar.html">Actualizar</a>
+							<a class="dropdown-item" href="../inventario/eliminar.html">Eliminar</a>
+                     <a class="dropdown-item" href="../inventario/consultar.html">Consultar</a>
+                     <a class="dropdown-item" href="../inventario/productosRegistrados.html">Productos Registrados</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategorias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Utilidades
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+							<a class="dropdown-item" href="resistencias.html">Resistencias</a>
+							<a class="dropdown-item" href="calculadora.html">Calculadora</a>
+							<a class="dropdown-item" href="precios.html">Caluladora de Precios</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+<div class="container">
+
+	<h1>Calculadora</h1>
+	
+	<script>
+		function suma(){
+			var a = document.f1.a.value;
+			var b = document.f1.b.value;
+			var r = document.f1.c.value;
+			r=parseFloat(a)+parseFloat(b);
+			document.f1.c.value=r;
+		}
+
+		function resta(){
+			var a = document.f1.a.value;
+			var b = document.f1.b.value;
+			var r = document.f1.c.value;
+			r=parseFloat(a)-parseFloat(b);
+			document.f1.c.value=r;
+		}
+
+		function multiplicacion(){
+			var a = document.f1.a.value;
+			var b = document.f1.b.value;
+			var r = document.f1.c.value;
+			r=parseFloat(a)*parseFloat(b);
+			document.f1.c.value=r;
+		}
+
+		function division(){
+			var a = document.f1.a.value;
+			var b = document.f1.b.value;
+			var r = document.f1.c.value;
+			r=parseFloat(a)/parseFloat(b);
+			document.f1.c.value=r;
+			//document.f1.c.value=r;
+			alert('El resultado de la división es: '+r);
+		}
+
+		function porcentaje(){
+			var a = document.f1.a.value;
+			var b = document.f1.b.value;
+			var r = document.f1.c.value;
+			r=parseFloat(a)*parseFloat(b)/100;
+			document.f1.c.value=r;
+		}
+	</script>
+		
+	<form name="f1" action="calculadora.html" method="post">
+		<div class="form-group">
+
+			<label for="numero1">Número 1:</label>
+			<input type="text" class="form-control" id="a" placeholder="Ingrese un número" name="a">
+
+			<br>
+
+			<label for="numero1">Número 2:</label>
+			<input type="text" class="form-control" id="b" placeholder="Ingrese un número" name="b">
+
+			<br>
+
+			<input type="button" name="" value="sumar" onclick="suma()" class="btn btn-primary">
+			<input type="button" name="" value="restar" onclick="resta()" class="btn btn-success">
+			<input type="button" name="" value="multiplicar" onclick="multiplicacion()" class="btn btn-warning">
+			<input type="button" name="" value="dividir" onclick="division()" class="btn btn-danger">
+			<input type="button" name="" value="porcentaje" onclick="porcentaje()" class="btn btn-succsess">
+			<input type="button" name="" value="limpiar" onclick="reset()" class="btn btn-primary">
+
+			<br><br>
+
+			<label for="resultado">Resultado:</label>
+			<input type="text" class="form-control" id="c" placeholder="Aqui se imprime el resultado" name="c">
+
+			
+		</div>
+		
+	</form>
+
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="../js/peticiones.js"></script>
+   <script>
+      controlPeticiones.verificarEstadoSesion();
+   </script>
+</body>
+</html>

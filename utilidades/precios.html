@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Calculadora de Precios</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+	<header>
+		<!-- 
+			La documentación sobre los Navs Bar se encuentra en el link:
+			https://getbootstrap.com/docs/4.3/components/navbar/ 
+		-->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<!-- Este siempre queda visible, pero no es necesario dejarlo -->
+			<a class="navbar-brand" href="#">Fox Electronics</a>
+			<!-- 	Este boton se muestra cuando se ha reducido la pantalla
+					Los atributo data-target y aria-controls llevan el id del Menú 
+			-->
+			<button 	class="navbar-toggler " type="button" data-toggle="collapse" 
+						data-target="#navMenuPrincipal" aria-controls="navMenuPrincipal"  
+						aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span> <!-- Este iciono se muestra cuando se ha reducido la pantalla-->
+			</button>
+
+			<div class="collapse navbar-collapse" id="navMenuPrincipal"> <!-- Menú -->
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="../index.html">Inicio</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                     Administrador
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                     <a class="dropdown-item" href="../admin/crearBD.html">Crear Base de Datos</a>
+                     <a class="dropdown-item" href="../admin/crearTabla.html">Crear Tabla</a>
+                     <a class="dropdown-item" href="../admin/crearBackup.html">Crear Backup</a>
+                  </div>
+               </li>
+					<li class="nav-item">
+						<a class="nav-link" href="../ventas/ventas.html">Ventas</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategorias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Inventario
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+							<a class="dropdown-item" href="../inventario/ingresar.html">Ingresar</a>
+							<a class="dropdown-item" href="../inventario/actualizar.html">Actualizar</a>
+							<a class="dropdown-item" href="../inventario/eliminar.html">Eliminar</a>
+                     <a class="dropdown-item" href="../inventario/consultar.html">Consultar</a>
+                     <a class="dropdown-item" href="../inventario/productosRegistrados.html">Productos Registrados</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategorias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Utilidades
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+							<a class="dropdown-item" href="resistencias.html">Resistencias</a>
+							<a class="dropdown-item" href="calculadora.html">Calculadora</a>
+							<a class="dropdown-item" href="precios.html">Caluladora de Precios</a>
+
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<div class="row justify-content-center mt-4 pt-4">
+			<div class="col-md-7">
+				<h1 class="display-4">Calculadora de Precios</h1>
+				<hr class="bg-info">
+				<p class="pb-0 mb-0">Acá puedes calcular los precios de la tienda.</p>
+				<p class="text-danger small pt-0 mt-0">Todos los campos son obligatorios.</p>				
+
+				<form id="formPrecios">
+					<div class="row form-group">
+						<label for-"nombre" class="col-form-label col-md-4">Valor de la compra:</label>
+						<div class="col-md-8">
+							<input type="number" name="compra" id="compra" class="form-control" min="0" required/>							
+						</div>						
+					</div>
+
+					<div class="row form-group">
+						<label for-"nombre" class="col-form-label col-md-4">Porcentaje de utilidad:</label>
+						<div class="col-md-8">
+							<input type="number" name="utilidad" id="utilidad" class="form-control" min="0" required/>							
+						</div>						
+					</div>
+
+					<div class="row form-group">
+						<label for-"nombre" class="col-form-label col-md-4">IVA:</label>
+						<div class="col-md-8">
+							<input type="number" value="0" name="iva" id="iva" class="form-control" min="0" max="100" required/>							
+						</div>						
+					</div>
+
+					<br>
+					<button type="submit" class="btn btn-info">Calcular</button>
+
+            </form>
+            <div class="alert alert-primary" role="alert">
+               <label for="resultado">Valor Ganancia:</label>
+               <input type="text" class="form-control" id="valGanancia" readonly />
+            </div>
+            <div class="alert alert-primary" role="alert">
+               <label for="resultado">Valor Iva:</label>
+               <input type="text" class="form-control" id="valIva" readonly />
+            </div>
+            <div class="alert alert-primary" role="alert">
+               <label for="resultado">Valor Venta:</label>
+               <input type="text" class="form-control" id="valVenta" readonly />
+            </div>
+			</div>
+
+			
+		</div>
+		
+	</div>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="../js/peticiones.js"></script>
+   <script>
+      controlPeticiones.verificarEstadoSesion();
+      $("#formPrecios").submit(function (event) {
+         let compra = parseInt( $('#compra').val(), 10);
+         let utilidad = parseInt( $('#utilidad').val(), 10);
+         let iva = parseInt( $('#iva').val(), 10);
+
+         let valIva=0;
+         let valUtilidad=0;
+         if(utilidad!==0){ 
+            valUtilidad = compra * utilidad/100;
+         }
+         if(iva!==0){
+            valIva = compra * iva/100;
+         }
+         
+         $('#valGanancia').val( new Intl.NumberFormat().format(valUtilidad));
+         $('#valIva').val(new Intl.NumberFormat().format(valIva));
+         $('#valVenta').val(new Intl.NumberFormat().format(compra + valUtilidad + valIva));
+         
+         event.preventDefault();
+      });
+   </script>
+</body>
+</html>
